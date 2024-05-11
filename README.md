@@ -16,3 +16,7 @@ Comparing the performance of the improved CapsNet model with the standard CapsNe
 
 Conclusion:
 The enhanced squash function significantly improves CapsNet performance across diverse datasets, confirming its potential for real-world applications in machine learning tasks. These findings underscore the importance of further research in enhancing CapsNet methodologies, particularly in handling complex and large-scale data.
+
+
+
+This code has the potential to significantly improve the classification of bone marrow cells, which can lead to more accurate diagnoses and personalized treatment plans for patients with bone marrow diseases. it can be accessed through the original source link at https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=101941770
