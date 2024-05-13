@@ -39,70 +39,7 @@ class Mask(layers.Layer):
 
 
 import tensorflow as tf
-#def squash(vectors, axis=-1):
-    #s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-    #scale = s_squared_norm / (1 + s_squared_norm) / tf.sqrt(s_squared_norm + K.epsilon())
-    #squashed = scale * vectors
-    #squashed = tf.tanh(squashed)  # Squash using tanh activation
-    #return squashed
-#def squash(vectors, axis=-1, alpha=0.5, beta=1.0):
-    #s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-    #scale = tf.sigmoid(beta * (s_squared_norm ** alpha)) 
-    #return scale * vectors
-#def squash(vectors, axis=-1, sharpness=0.5):
- #   s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-  #  scale = tf.sigmoid(sharpness * (s_squared_norm / (1 + s_squared_norm)))
-   # return scale * vectors
-#def squash(vectors, axis=-1, alpha=0.5):
- #   s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-  #  scale = (s_squared_norm ** alpha) / (1 + s_squared_norm) 
-   # return scale * vectors
-#def squash(vectors, axis=-1):
-    #s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-    #scale = s_squared_norm / (1 + s_squared_norm) / tf.sqrt(s_squared_norm + K.epsilon())
-    #return scale * vectors
-#def squash(vectors, axis=-1):
- #   s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-  #  scale = 1 / (1 + s_squared_norm)/4
-   # return scale * vectors
-#def squash(vectors, axis=-1):
-  
-  #with tf.name_scope('squash'):
-    #squared_norm = tf.reduce_sum(tf.square(vectors), axis=axis, keepdims=True)
-    #norm = tf.sqrt(squared_norm + K.epsilon())
-    #one_minus_exp_norm = 1 - tf.exp(norm)
-    #scale = (1 / one_minus_exp_norm) * vectors / norm
-    #return scale
-''' 
-def squash(vectors, axis=-1, alpha_param=None, epsilon=tf.keras.backend.epsilon()):
-    s_squared_norm = tf.reduce_sum(tf.square(vectors), axis=axis, keepdims=True)
-    if alpha_param is None:
-       alpha_initializer = tf.ones_like(s_squared_norm)
-       alpha = layers.Dense(1, use_bias=False, kernel_initializer=initializers.Constant(alpha_initializer))(s_squared_norm)
-    else:
-       alpha = alpha_param
-    scale = alpha / (1.0 + alpha * s_squared_norm)
-    return scale * vectors
-''' 
-'''
-def squash(vectors, axis=-1):
-    s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True) + K.epsilon()
-    squashing_factor = s_squared_norm / (0.5 + s_squared_norm)
-    squash = squashing_factor * vectors / tf.sqrt(s_squared_norm)
-    # Non-linear activation (tanh, sigmoid)
-    squashed = tf.tanh(squash)
-    return squashed
-'''
-''''
-#s200
-def squash(vectors, axis=-1):
-  s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
-  scale = s_squared_norm / (1 + s_squared_norm) / tf.sqrt(s_squared_norm + K.epsilon())
-  squashed_vectors = scale * vectors
-  # Additional Analysis
-  mean_magnitude = tf.reduce_mean(tf.sqrt(s_squared_norm), axis=axis)
-  return squashed_vectors, mean_magnitude
-  '''
+
 
 #Litrature2 Squash by //Afriyie, Y., A. Weyori, B., & A. Opoku, A. (2022). Classification of blood cells using optimized Capsule networks. Neural Processing Letters, 54(6), 4809-4828///
 '''
