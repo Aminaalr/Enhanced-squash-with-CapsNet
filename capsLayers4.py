@@ -104,7 +104,7 @@ def squash(vectors, axis=-1):
   return squashed_vectors, mean_magnitude
   '''
 
-#Litrature1 Squash by //Afriyie, Y., A. Weyori, B., & A. Opoku, A. (2022). Classification of blood cells using optimized Capsule networks. Neural Processing Letters, 54(6), 4809-4828///
+#Litrature2 Squash by //Afriyie, Y., A. Weyori, B., & A. Opoku, A. (2022). Classification of blood cells using optimized Capsule networks. Neural Processing Letters, 54(6), 4809-4828///
 '''
 def squash(vectors, axis=-1):
     s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
@@ -112,7 +112,7 @@ def squash(vectors, axis=-1):
     return scale *  vectors
 '''
 '''
-#Litrature1 2 Squash User f(x) = (1 - 1 / exp(||x||)) * (x / ||x||) 
+#Litrature1 3 Squash User f(x) = (1 - 1 / exp(||x||)) * (x / ||x||) 
 import tensorflow as tf
 
 def squash(x):
@@ -146,13 +146,13 @@ def squash(x):
 
 
 
-
+#Enhanced Squash
 import tensorflow as tf
 from tensorflow.keras import layers
 
 def squash(vectors, axis=-1):
     # Non-linear activation function (squashing)
-    s_squared_norm = tf.reduce_sum(tf.square(vectors), axis, keepdims=True)
+    s_squared_norm = tf.reduce_sum(tf.square(vectors/5), axis, keepdims=True)
     scale = 0.5 * s_squared_norm / (1+ 0.5* s_squared_norm) /  tf.sqrt(s_squared_norm + K.epsilon())
     # Layer normalization
     epsilon = 1e-6
